@@ -25,7 +25,6 @@ export class VehicleTypesApi {
 	constructor(protected readonly baseUrl: string) {}
 
 	async searchPage(query: string, page: number, size: number): Promise<Page<VehicleType>> {
-		const opts = { headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGlnaSIsImlhdCI6MTYxMzgwNDE1OSwiZXhwIjoxNjE0MDYzMzU5fQ.-dryss8jz7SlnwLgHbeDldOkZDwuJDXAcLncXmwOPRU' } };
 		const res = await Axios.get(`${this.baseUrl}/page?query=${query}&page=${page}&size=${size}`, { headers: authApi.getAuthHeaders() });
 		return res.data;
 	}
