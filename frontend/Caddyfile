@@ -1,0 +1,17 @@
+http://0.0.0.0 {
+	cors
+
+	gzip
+	log access.log
+	errors errors.log
+
+	rewrite {
+		if {path} not_starts_with /api
+		if {path} not_starts_with /static
+		to /
+	}
+
+	proxy /api {$BACKEND_HOST}:{$BACKEND_PORT} {
+		transparent
+	}
+}

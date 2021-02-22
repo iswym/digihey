@@ -1,0 +1,19 @@
+{
+  "transforms": [
+    {
+      "mode": "sql",
+      "include": "static-queries/**/*.sql",
+      "emitTemplate": "{{dir}}/{{name}}.ts"
+    }
+  ],
+  "srcDir": "./src/",
+  "failOnError": false,
+  "camelCaseColumnNames": false,
+  "db": {
+    "host": "localhost",
+		"port": 5432,
+    "dbName": "digihey_db",
+    "user": "digihey_user",
+    "password": "digihey_pass"
+  }
+}

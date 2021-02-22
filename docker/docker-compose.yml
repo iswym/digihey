@@ -1,0 +1,29 @@
+version: "3"
+services:
+  db:
+    build: ../backend/db
+    image: digihey_db
+    environment:
+      - DB_NAME
+      - DB_USER
+      - DB_PASS
+  backend:
+    build: ../backend
+    image: digihey_backend
+    depends_on:
+      - db
+    environment:
+      - DB_HOST
+      - DB_PORT
+      - DB_NAME
+      - DB_USER
+      - DB_PASS
+  frontend:
+    build: ../frontend
+    image: digihey_frontend
+    ports:
+      - "$FRONTEND_EXPOSED_PORT:80"
+    environment:
+      - FRONTEND_EXPOSED_PORT
+      - BACKEND_HOST
+      - BACKEND_PORT
