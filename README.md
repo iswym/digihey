@@ -17,6 +17,14 @@
 * error reporting - currently creation of duplicate vehicle type fails and error message is reported but user has no idea why it failed
 * better validation - restrict vehicle type year to reasonable values
 
+---
+
+![Search example](demo/example_1_vehicle_type_search.gif)
+
+![Create example](demo/example_2_create_vehicle_type.gif)
+
+---
+
 ### Design:
 * for persisting data I've chosen PostgreSQL for 2 reasons:
 	* offload triple (make, model, year) uniqueness constraint to PG
